@@ -1,0 +1,4 @@
+payload_category,Baseline (no defence),Structural delimiting,Warning only (control),Provenance-Aware Middleware
+data,12.5,37.5,0.0,25.0
+override,0.0,12.5,0.0,12.5
+privilege,25.0,25.0,0.0,37.5

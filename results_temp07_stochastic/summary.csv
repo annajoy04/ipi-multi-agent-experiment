@@ -1,0 +1,4 @@
+configuration,injected_runs,infected_runs,attack_success_rate_pct,clean_runs,task_completion_pct,median_latency_s
+Baseline (no defence),36,16,44.4,24,100.0,10.21
+Structural delimiting,36,7,19.4,24,100.0,10.14
+Provenance-Aware Middleware,36,0,0.0,24,100.0,10.01

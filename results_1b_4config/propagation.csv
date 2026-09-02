@@ -1,0 +1,5 @@
+configuration,reached_retriever_pct,reached_analyst_pct,reached_executive_pct
+Baseline (no defence),37.5,25.0,12.5
+Structural delimiting,75.0,62.5,25.0
+Warning only (control),12.5,4.2,0.0
+Provenance-Aware Middleware,95.8,62.5,25.0

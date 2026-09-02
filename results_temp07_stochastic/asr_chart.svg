@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" font-family="Times New Roman, serif">
+<rect width="720" height="420" fill="white"/>
+<line x1="90" y1="330.0" x2="690" y2="330.0" stroke="#dddddd" stroke-width="1"/>
+<text x="80" y="334.0" font-size="13" text-anchor="end" fill="#333333">0</text>
+<line x1="90" y1="278.0" x2="690" y2="278.0" stroke="#dddddd" stroke-width="1"/>
+<text x="80" y="282.0" font-size="13" text-anchor="end" fill="#333333">20</text>
+<line x1="90" y1="226.0" x2="690" y2="226.0" stroke="#dddddd" stroke-width="1"/>
+<text x="80" y="230.0" font-size="13" text-anchor="end" fill="#333333">40</text>
+<line x1="90" y1="174.0" x2="690" y2="174.0" stroke="#dddddd" stroke-width="1"/>
+<text x="80" y="178.0" font-size="13" text-anchor="end" fill="#333333">60</text>
+<line x1="90" y1="122.0" x2="690" y2="122.0" stroke="#dddddd" stroke-width="1"/>
+<text x="80" y="126.0" font-size="13" text-anchor="end" fill="#333333">80</text>
+<line x1="90" y1="70.0" x2="690" y2="70.0" stroke="#dddddd" stroke-width="1"/>
+<text x="80" y="74.0" font-size="13" text-anchor="end" fill="#333333">100</text>
+<rect x="135.0" y="214.6" width="110.0" height="115.4" fill="#b03a2e"/>
+<text x="190.0" y="206.6" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">44.4%</text>
+<text x="190.0" y="352" font-size="13" text-anchor="middle" fill="#000000">Baseline</text>
+<rect x="335.0" y="279.6" width="110.0" height="50.4" fill="#b7950b"/>
+<text x="390.0" y="271.6" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">19.4%</text>
+<text x="390.0" y="352" font-size="13" text-anchor="middle" fill="#000000">Structural delimiting</text>
+<rect x="535.0" y="330.0" width="110.0" height="0.0" fill="#1e6f5c"/>
+<text x="590.0" y="322.0" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">0.0%</text>
+<text x="590.0" y="352" font-size="13" text-anchor="middle" fill="#000000">Provenance-Aware</text>
+<text x="590.0" y="370" font-size="13" text-anchor="middle" fill="#000000">Middleware</text>
+<line x1="90" y1="330" x2="690" y2="330" stroke="#000000" stroke-width="1.2"/>
+<line x1="90" y1="70" x2="90" y2="330" stroke="#000000" stroke-width="1.2"/>
+<text x="390" y="26" font-size="16" font-weight="bold" text-anchor="middle">Attack success rate by configuration</text>
+<text x="390" y="46" font-size="12" fill="#555555" text-anchor="middle">llama3.2:3b | 12 injected documents | 3 repeat(s) | temperature 0.7</text>
+<text x="22" y="200" font-size="13" text-anchor="middle" transform="rotate(-90 22 200)">Attack success rate (%)</text>
+</svg>

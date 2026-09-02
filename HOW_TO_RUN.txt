@@ -1,0 +1,175 @@
+=========================================================
+ HOW TO RUN THE EXPERIMENT  -  step by step, Windows
+=========================================================
+Work through this in order. After each step there is a
+line saying what you should see if it worked.
+Total time: about 20 minutes of your attention,
+plus 20-40 minutes of waiting while it runs.
+
+---------------------------------------------------------
+STEP 1  -  Open a command window in the right folder
+---------------------------------------------------------
+1. Open File Explorer.
+2. Go to:  Desktop > ipi_experiment
+3. Click once in the ADDRESS BAR at the top (where the
+   folder path is shown), so the path highlights blue.
+4. Type:   cmd
+5. Press Enter.
+
+WORKED IF: a black window opens and the last line ends with
+           \Desktop\ipi_experiment>
+Leave this window open. Every command below goes in here.
+
+---------------------------------------------------------
+STEP 2  -  Check Python is installed
+---------------------------------------------------------
+Type this and press Enter:
+
+    python --version
+
+WORKED IF: it prints something like  Python 3.12.1
+
+IF IT SAYS 'python' is not recognized:
+  - Try instead:   py --version
+  - If that works, use "py" instead of "python" everywhere below.
+  - If neither works, install Python from https://www.python.org/downloads/
+    IMPORTANT: on the first screen of the installer, TICK the box
+    "Add python.exe to PATH" before clicking Install.
+    Then close the black window and start again from Step 1.
+
+---------------------------------------------------------
+STEP 3  -  Test the code with no model (takes 2 seconds)
+---------------------------------------------------------
+This proves the code works before you install anything big.
+
+    python experiment.py --backend mock
+
+WORKED IF: about 60 lines scroll past, ending with
+           "Wrote results/runs.csv and results/metadata.json"
+
+Then run:
+
+    python analyse.py
+
+If it says matplotlib is not installed, run this once:
+
+    pip install matplotlib
+
+and then run  python analyse.py  again.
+
+WORKED IF: you see a table of results printed on screen.
+NOTE: these numbers are FAKE. The mock backend invents them.
+They only prove the plumbing works. Never put them in your paper.
+
+---------------------------------------------------------
+STEP 4  -  Delete the fake results
+---------------------------------------------------------
+In File Explorer, open the ipi_experiment folder and DELETE
+the folder called "results". This makes sure fake numbers
+cannot get mixed up with real ones.
+
+---------------------------------------------------------
+STEP 5  -  Install Ollama (this runs the AI model on your laptop)
+---------------------------------------------------------
+1. Go to  https://ollama.com  and click Download for Windows.
+2. Run the installer. Accept the defaults.
+3. After it installs, Ollama runs in the background. You may
+   see a small llama icon near the clock. That is correct.
+
+WORKED IF: back in your black window, this prints a version number:
+
+    ollama --version
+
+If it says not recognized, close the black window completely,
+then start again from Step 1 (new windows pick up new programs).
+
+---------------------------------------------------------
+STEP 6  -  Download the model (about 2 GB, one time only)
+---------------------------------------------------------
+    ollama pull llama3.2:3b
+
+WORKED IF: a progress bar fills up and finishes with "success".
+This can take 5-15 minutes on a normal connection.
+
+IF YOUR LAPTOP IS OLD OR SLOW, use the smaller model instead:
+
+    ollama pull llama3.2:1b
+
+and use llama3.2:1b in Step 7 instead of llama3.2:3b.
+
+---------------------------------------------------------
+STEP 7  -  Run the real experiment
+---------------------------------------------------------
+First do a quick single pass to check it works:
+
+    python experiment.py --backend ollama --model llama3.2:3b --repeats 1
+
+WORKED IF: lines appear one at a time like
+    [1/60] baseline    I1   override  infected=True 2.3s
+    [2/60] baseline    I2   override  infected=True 2.1s
+This is the experiment actually running. Each line is one
+document going through all three agents.
+
+If that finishes cleanly, delete the results folder again and
+run the proper version with three repeats:
+
+    python experiment.py --backend ollama --model llama3.2:3b --repeats 3
+
+This is 180 runs. Leave it alone for 20-40 minutes.
+You can use the laptop for other things, but it will be slow.
+
+---------------------------------------------------------
+STEP 8  -  Produce your tables and chart
+---------------------------------------------------------
+    python analyse.py
+
+WORKED IF: you see HEADLINE RESULTS, BY PAYLOAD CATEGORY and
+PROPAGATION printed, and it says the chart was written.
+
+---------------------------------------------------------
+STEP 9  -  Look at what you produced
+---------------------------------------------------------
+Open the "results" folder. You should have:
+
+    runs.csv          every single run - your raw data
+    summary.csv       the headline numbers
+    by_category.csv   results split by payload type
+    propagation.csv   how far the injection travelled
+    asr_chart.png     the bar chart for your paper
+    tables.md         tables ready to paste in
+    metadata.json     model, temperature, seed - proves reproducibility
+
+BACK THESE UP. Copy the whole results folder somewhere safe.
+If you rerun the experiment it overwrites them.
+
+---------------------------------------------------------
+STEP 10  -  Send the numbers to Claude
+---------------------------------------------------------
+Copy everything that analyse.py printed on screen, and paste
+it into the chat. Then we fill in Section 4 of the paper and
+work out what the results actually mean for Section 5.
+
+=========================================================
+ IF SOMETHING GOES WRONG
+=========================================================
+Copy the FULL error message (all the red text) and paste it
+into the chat. Do not retype it - copy it exactly.
+
+Common problems:
+
+"'python' is not recognized"
+    Use  py  instead of  python
+
+"'ollama' is not recognized"
+    Close the black window, open a new one (Step 1), try again.
+
+"connection refused" or "urlopen error"
+    Ollama is not running. Open the Start menu, search Ollama,
+    and click it. Wait 10 seconds, then try again.
+
+It is going very slowly
+    Stop it with Ctrl+C. Use llama3.2:1b instead, and --repeats 1.
+
+You want to stop it early
+    Press Ctrl+C. Nothing is damaged. Just start again later.
+=========================================================
