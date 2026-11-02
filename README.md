@@ -96,3 +96,22 @@ authoritative record of the conditions under which each result was produced.
 - The canary measures whether an instruction was followed, not whether harm would have occurred.
 - The corpus is small and author-written, so absolute rates are indicative; the comparison
   between configurations is the meaningful result.
+
+  ## Key result
+
+A provenance-aware middleware that re-verifies trust at every agent handover reduced attack
+success from a **44.4% baseline to 5.6%**, significantly outperforming entry-point structural
+delimiting (19.4%), which decays once malicious content moves between agents.
+
+| Configuration | Attack success rate |
+|---|---|
+| Baseline (no defence) | 44.4% |
+| Delimiting (entry point only) | 19.4% |
+| Warning-only control (every hop) | 13.9% |
+| **Provenance (every hop)** | **5.6%** |
+
+
+## Author
+
+Anna Joy — MSc Cyber Security, University of the West of England
+[LinkedIn](https://www.linkedin.com/in/anna-joy-475407280)
